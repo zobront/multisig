@@ -1,7 +1,7 @@
 import { ethers } from "ethers"
 import { createContext, useContext, useEffect, useState } from "react"
 
-// import ContractArtifact from '../artifacts/contracts/Contract.sol/Contract.json';
+import MultisigArtifact from '../artifacts/contracts/Multisig.sol/Multisig.json';
 import { useEthereum } from "./EthereumProvider"
 
 const ContractContext = createContext()
@@ -17,12 +17,12 @@ const ContractProvider = (props) => {
   }
 
   useEffect(() => {
-    // const Contract = new ethers.Contract(
-    //   '0xC36c784B5b787878841508830AdBa84C9DD817A9',
-    //   ContractArtifact.abi,
-    //   provider
-    // )
-    // addContract("Contract", Contract)
+    const multisig = new ethers.Contract(
+      '0xEFd9bff2E93cFe15269eF0A4aE2F6330998cc672',
+      MultisigArtifact.abi,
+      provider
+    )
+    addContract("multisig", multisig)
   }, [])
 
   const variables = { contracts }

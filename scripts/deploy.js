@@ -1,8 +1,8 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const Contract = await ethers.getContractFactory("Contract");
-  const contract = await Contract.deploy(7);
+  const Contract = await ethers.getContractFactory("Multisig");
+  const contract = await Contract.deploy();
   await contract.deployed();
 
   console.log("Contract deployed to:", contract.address);
